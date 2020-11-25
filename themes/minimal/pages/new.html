@@ -1,0 +1,33 @@
+	<h1>Upload image</h1>
+
+	<form action="/new" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td>Title</td>
+				<td><input name="title" type="text" placeholder="Untitled" /></td>
+			</tr>
+
+			<tr>
+				<td>Author</td>
+				<td><input name="author" type="text" placeholder="Anonymous" /></td>
+			</tr>
+
+			<tr>
+				<td>Expires in</td>
+				<td>
+					<select name="duration">
+						@@durations@@
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>Private</td>
+				<td><input type="checkbox" name="private" checked></input></td>
+			</tr>
+		</table>
+
+		<input type="file" id="file" name="filename">
+		<button>Submit</button>
+
+	</form>

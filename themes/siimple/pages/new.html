@@ -1,0 +1,38 @@
+	<h1>Upload image</h1>
+
+	<div class="siimple-form">
+		<form action="/new" method="post" enctype="multipart/form-data">
+			<div class="siimple-field">
+				<label class="siimple-field-label">Title</label>
+				<input class="siimple-input" name="title" type="text" placeholder="Untitled" />
+			</div>
+
+			<div class="siimple-field">
+				<label class="siimple-field-label">Author</label>
+				<input class="siimple-input" name="author" type="text" placeholder="Anonymous" />
+			</div>
+
+			<div class="siimple-field">
+				<label class="siimple-field-label">Expires in</label>
+				<select class="siimple-select" name="duration">
+					@@durations@@
+				</select>
+			</div>
+
+			<div class="siimple-field">
+				<label class="siimple-label">Private</label>
+				<div class="siimple-checkbox">
+					<input type="checkbox" id="private" name="private" checked>
+					<label for="private"></label>
+				</div>
+			</div>
+
+			<div class="siimple-field">
+				<input type="file" id="file" name="filename"></input>
+			</div>
+
+			<div class="siimple-form-field">
+				<input type="submit" class="siimple-btn siimple-btn--blue"></input>
+			</div>
+		</form>
+	</div>

@@ -1,0 +1,27 @@
+# vim/emacs specific.
+^tags$
+^tags.lock$
+^tags.temp$
+\.swp$
+\.swo$
+
+# macOS specific.
+\.DS_Store$
+
+# Temporary files.
+^libimgpaster\.a$
+^libsqlite3\.a$
+\.o$
+\.d$
+
+# Executables.
+^imgpasterd(\.8)?$
+^imgpasterd-clean(\.8)?$
+^imgpaster(\.1)?$
+
+# Distribution files.
+^imgpaster-\d\.\d.\d\.tar\.xz(\.asc)?$
+
+# Test files.
+^test\.db$
+^tests/test-database$
