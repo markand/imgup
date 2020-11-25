@@ -16,8 +16,13 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef IMGPASTER_FRAGMENT_H
+#define IMGPASTER_FRAGMENT_H
+
 struct kreq;
 struct ktemplate;
 
 void
 fragment(struct kreq *, const struct ktemplate *, const char *);
+
+#endif /* !IMGPASTER_FRAGMENT_H */

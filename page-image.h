@@ -16,7 +16,12 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef IMGPASTER_PAGE_IMAGE_H
+#define IMGPASTER_PAGE_IMAGE_H
+
 struct kreq;
 
 void
 page_image(struct kreq *);
+
+#endif /* !IMGPASTER_PAGE_IMAGE_H */

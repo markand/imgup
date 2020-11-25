@@ -16,6 +16,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef IMGPASTER_PAGE_H
+#define IMGPASTER_PAGE_H
+
 #include <sys/types.h>
 #include <stdarg.h>
 #include <stdint.h>
@@ -23,3 +26,5 @@
 
 void
 page(struct kreq *, const struct ktemplate *, enum khttp, const char *);
+
+#endif /* !IMGPASTER_PAGE_H */
