@@ -32,7 +32,7 @@ static void
 defaults(void)
 {
 	snprintf(config.databasepath, sizeof (config.databasepath),
-	    "%s", VARDIR "/paster/paster.db");
+	    "%s", VARDIR "/imgpaster/imgpaster.db");
 }
 
 static void

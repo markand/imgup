@@ -19,7 +19,7 @@
 #include "config.h"
 
 struct config config = {
-	.databasepath   = VARDIR "/imgpaster/paster.db",
+	.databasepath   = VARDIR "/imgpaster/imgpaster.db",
 	.themedir       = SHAREDIR "/imgpaster/themes/minimal",
 	.verbosity      = 1
 };
