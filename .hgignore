@@ -15,12 +15,12 @@
 \.d$
 
 # Executables.
-^imgpasterd(\.8)?$
-^imgpasterd-clean(\.8)?$
-^imgpaster(\.1)?$
+^imgupd(\.8)?$
+^imgupd-clean(\.8)?$
+^imgup(\.1)?$
 
 # Distribution files.
-^imgpaster-\d\.\d.\d\.tar\.xz(\.asc)?$
+^imgup-\d\.\d.\d\.tar\.xz(\.asc)?$
 
 # Test files.
 ^test\.db$
