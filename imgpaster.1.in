@@ -39,9 +39,7 @@ it will upload an image into an instance.
 .Pp
 The
 .Ar filename
-argument can points to a file whose content will be uploaded.
-.Pp
-The
+argument must point to an image and the
 .Ar host
 argument is a URL where a
 .Nm imgpasterd
@@ -61,7 +59,7 @@ Sets the author, defaults to
 .Dq "nohighlight" .
 .It Fl d Ar duration
 Sets the paste lifetime, defaults to
-.Dq "month" .
+.Dq "day" .
 .It Fl t Ar title
 Sets a title to the paste, defaults to
 .Dq "Untitled" .
