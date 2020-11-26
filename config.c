@@ -1,5 +1,5 @@
 /*
- * config.c -- imgpasterd options
+ * config.c -- imgupd options
  *
  * Copyright (c) 2020 David Demelier <markand@malikania.fr>
  * 
@@ -19,7 +19,7 @@
 #include "config.h"
 
 struct config config = {
-	.databasepath   = VARDIR "/imgpaster/imgpaster.db",
-	.themedir       = SHAREDIR "/imgpaster/themes/minimal",
+	.databasepath   = VARDIR "/imgup/imgup.db",
+	.themedir       = SHAREDIR "/imgup/themes/minimal",
 	.verbosity      = 1
 };

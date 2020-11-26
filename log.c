@@ -33,7 +33,7 @@ void
 log_open(void)
 {
 	if (config.verbosity > 0)
-		openlog("imgpaster", 0, LOG_USER);
+		openlog("imgup", 0, LOG_USER);
 }
 
 void

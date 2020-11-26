@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_DATABASE_H
-#define IMGPASTER_DATABASE_H
+#ifndef IMGUP_DATABASE_H
+#define IMGUP_DATABASE_H
 
 #include <stdbool.h>
 #include <stddef.h>
@@ -48,4 +48,4 @@ database_clear(void);
 void
 database_finish(void);
 
-#endif /* !IMGPASTER_DATABASE_H */
+#endif /* !IMGUP_DATABASE_H */

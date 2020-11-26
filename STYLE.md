@@ -1,5 +1,5 @@
-imgpaster CODING STYLE
-======================
+imgup CODING STYLE
+==================
 
 File content
 ============

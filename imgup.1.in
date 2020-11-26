@@ -14,11 +14,11 @@
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
 .Dd 25 November, 2020
-.Dt IMGPASTER 1
+.Dt IMGUP 1
 .Os
 .\" NAME
 .Sh NAME
-.Nm imgpaster
+.Nm imgup
 .Nd simple image hosting service client
 .\" SYNOPSIS
 .Sh SYNOPSIS
@@ -34,7 +34,7 @@
 The
 .Nm
 tool is the convenient brother to
-.Nm imgpasterd ,
+.Nm imgupd ,
 it will upload an image into an instance.
 .Pp
 The
@@ -42,7 +42,7 @@ The
 argument must point to an image and the
 .Ar host
 argument is a URL where a
-.Nm imgpasterd
+.Nm imgupd
 instance is running.
 .Pp
 Available options:
@@ -56,22 +56,22 @@ Be more verbose.
 .It Fl a Ar author
 Sets the author, defaults to
 .Dq Anonymous .
-.Dq "nohighlight" .
 .It Fl d Ar duration
 Sets the paste lifetime, defaults to
 .Dq "day" .
 .It Fl t Ar title
 Sets a title to the paste, defaults to
 .Dq "Untitled" .
+.El
 .\" EXAMPLES
 .Sh EXAMPLES
 .Ss Upload the image background.png with a title and an author.
 .Bd -literal -offset
-imgpaster -t "Nice background" -a Francis background.sh http://example.org
+imgup -t "Nice background" -a Francis background.sh http://example.org
 .Ed
 .Ss Paste a short duration image.
 .Bd -literal -offset
-imgpaster -p -d hour secret.png http://example.org
+imgup -p -d hour secret.png http://example.org
 .Ed
 .\" AUTHORS
 .Sh AUTHORS
@@ -79,4 +79,4 @@ imgpaster -p -d hour secret.png http://example.org
 was written by David Demelier <markand@malikania.fr>
 .\" SEE ALSO
 .Sh SEE ALSO
-.Xr imgpasterd 8
+.Xr imgupd 8

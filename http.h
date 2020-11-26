@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_HTTP_H
-#define IMGPASTER_HTTP_H
+#ifndef IMGUP_HTTP_H
+#define IMGUP_HTTP_H
 
 void
 http_fcgi_run(void);
@@ -25,4 +25,4 @@ http_fcgi_run(void);
 void
 http_cgi_run(void);
 
-#endif /* !IMGPASTER_HTTP_H */
+#endif /* !IMGUP_HTTP_H */

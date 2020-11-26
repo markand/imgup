@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_IMAGE_H
-#define IMGPASTER_IMAGE_H
+#ifndef IMGUP_IMAGE_H
+#define IMGUP_IMAGE_H
 
 #include <stdbool.h>
 #include <stddef.h>
@@ -51,4 +51,4 @@ image_finish(struct image *);
 bool
 image_isvalid(const void *, size_t);
 
-#endif /* !IMGPASTER_IMAGE_H */
+#endif /* !IMGUP_IMAGE_H */

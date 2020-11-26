@@ -1,7 +1,12 @@
-imgpaster CHANGES
-=================
+imgup CHANGES
+=============
 
-imgpaster 0.1.0 2020-11-26
---------------------------
+imgup current
+----------------------
+
+- Rename the project from imgpaster to imgup.
+
+imgup 0.1.0 2020-11-26
+----------------------
 
 - Initial release.

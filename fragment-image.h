@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_FRAGMENT_IMAGE_H
-#define IMGPASTER_FRAGMENT_IMAGE_H
+#ifndef IMGUP_FRAGMENT_IMAGE_H
+#define IMGUP_FRAGMENT_IMAGE_H
 
 struct image;
 struct kreq;
@@ -25,4 +25,4 @@ struct kreq;
 void
 fragment_image(struct kreq *, const struct image *);
 
-#endif /* !IMGPASTER_FRAGMENT_IMAGE_H */
+#endif /* !IMGUP_FRAGMENT_IMAGE_H */

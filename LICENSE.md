@@ -1,5 +1,5 @@
-imgpaster ISC LICENSE
-=====================
+imgup ISC LICENSE
+=================
 
 Copyright (c) 2020 David Demelier <markand@malikania.fr>
 

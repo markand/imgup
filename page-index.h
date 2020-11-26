@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_PAGE_INDEX_H
-#define IMGPASTER_PAGE_INDEX_H
+#ifndef IMGUP_PAGE_INDEX_H
+#define IMGUP_PAGE_INDEX_H
 
 #include <stddef.h>
 
@@ -30,4 +30,4 @@ page_index_render(struct kreq *, const struct image *, size_t);
 void
 page_index(struct kreq *);
 
-#endif /* !IMGPASTER_PAGE_INDEX_H */
+#endif /* !IMGUP_PAGE_INDEX_H */

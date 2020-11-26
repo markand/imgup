@@ -1,5 +1,5 @@
 /*
- * config.h -- imgpasterd options
+ * config.h -- imgupd options
  *
  * Copyright (c) 2020 David Demelier <markand@malikania.fr>
  * 
@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_CONFIG_H
-#define IMGPASTER_CONFIG_H
+#ifndef IMGUP_CONFIG_H
+#define IMGUP_CONFIG_H
 
 #include <limits.h>
 
@@ -29,4 +29,4 @@ extern struct config {
 	enum log_level verbosity;
 } config;
 
-#endif /* !IMGPASTER_CONFIG_H */
+#endif /* !IMGUP_CONFIG_H */

@@ -14,11 +14,11 @@
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
 .Dd 25 November, 2020
-.Dt IMGPASTERD 8
+.Dt IMGUPD 8
 .Os
 .\" NAME
 .Sh NAME
-.Nm imgpasterd
+.Nm imgupd
 .Nd simple image hosting service
 .\" SYNOPSIS
 .Sh SYNOPSIS
@@ -76,7 +76,7 @@ instead every parameter could be passed by environment variables or options.
 By default,
 .Nm
 will try to use
-.Pa @VARDIR@/imgpaster/imgpaster.db
+.Pa @VARDIR@/imgup/imgup.db
 database.
 .\" LOGS
 .Sh LOGS
@@ -95,7 +95,7 @@ none < warnings (default) < info < debug
 Use
 .Fl q
 or
-.Va IMGPASTERD_VERBOSITY=0
+.Va IMGUPD_VERBOSITY=0
 if you want to disable syslog completely.
 .\" USING WITH FASTCGI
 .Sh USING WITH FASTCGI
@@ -107,20 +107,20 @@ helper to spawn the process for you.
 .Pp
 Example:
 .Bd -literal -offset Ds
-kfcgi -p /var/www/imgpaster -- imgpasterd -f -d imgpaster.db -t siimple
+kfcgi -p /var/www/imgup -- imgupd -f -d imgup.db -t siimple
 .Ed
 .Pp
 Note: kfcgi chroot to the directory given, you must either statically link
-imgpasterd at build time or deploy all required libraries. Also, themes
+imgupd at build time or deploy all required libraries. Also, themes
 directory will need to be available in the chroot directory. In the above
 example, this will effectively create a database
-.Pa /var/www/imgpaster/imgpaster.db
+.Pa /var/www/imgup/imgup.db
 and use the theme
-.Pa /var/www/imgpaster/siimple .
+.Pa /var/www/imgup/siimple .
 .Pp
 Then, simply copy the desired theme into the directory.
 .Bd -literal -offset Ds
-cp -R @SHAREDIR@/imgpaster/themes/siimple /var/www/imgpaster
+cp -R @SHAREDIR@/imgup/themes/siimple /var/www/imgup
 .Ed
 .Pp
 As an
@@ -129,9 +129,9 @@ alternative, you can chroot to
 .Pa /
 to avoid static-linking and copying themes, using:
 .Bd -literal -offset Ds
-kfcgi -p / -- imgpasterd -f \e
-	-d /var/www/imgpaster/imgpaster.db \e
-	-t @SHAREDIR@/imgpaster/themes/siimple
+kfcgi -p / -- imgupd -f \e
+	-d /var/www/imgup/imgup.db \e
+	-t @SHAREDIR@/imgup/themes/siimple
 .Ed
 .Pp
 Both kfcgi invocations will create
@@ -190,11 +190,11 @@ server {
 .Sh ENVIRONMENT
 The following environment variables are detected:
 .Bl -tag -width Ds
-.It Va IMGPASTERD_DATABASE_PATH No (string)
+.It Va IMGUPD_DATABASE_PATH No (string)
 Path to the SQLite database.
-.It Va IMGPASTERD_THEME_DIR No (string)
+.It Va IMGUPD_THEME_DIR No (string)
 Directory containing the theme.
-.It Va IMGPASTERD_VERBOSITY No (number)
+.It Va IMGUPD_VERBOSITY No (number)
 Verbosity level, 0 to disable completely.
 .El
 .\" AUTHORS
@@ -203,5 +203,5 @@ Verbosity level, 0 to disable completely.
 was written by David Demelier <markand@malikania.fr>
 .\" SEE ALSO
 .Sh SEE ALSO
-.Xr imgpaster 1 ,
+.Xr imgup 1 ,
 .Xr kfcgi 8

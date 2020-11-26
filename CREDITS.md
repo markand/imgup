@@ -1,5 +1,5 @@
-imgpaster CREDITS
-=================
+imgup CREDITS
+=============
 
 Libraries and projects
 ----------------------

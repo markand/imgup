@@ -1,5 +1,5 @@
 /*
- * pasterd-clean.c -- main pasterd-clean(8) file
+ * imgupd-clean.c -- main imgupd-clean(8) file
  *
  * Copyright (c) 2020 David Demelier <markand@malikania.fr>
  * 
@@ -28,7 +28,7 @@
 static noreturn void
 usage(void)
 {
-	fprintf(stderr, "usage: imgpasterd-clean [-d database-path]\n");
+	fprintf(stderr, "usage: imgupd-clean [-d database-path]\n");
 	exit(1);
 }
 
@@ -36,11 +36,11 @@ int
 main(int argc, char **argv)
 {
 	const char *value;
-	char path[PATH_MAX] = VARDIR "/imgpaster/imgpaster.db";
+	char path[PATH_MAX] = VARDIR "/imgup/imgup.db";
 	int ch;
 
 	/* Seek environment first. */
-	if ((value = getenv("IMGPASTERD_DATABASE_PATH")))
+	if ((value = getenv("IMGUPD_DATABASE_PATH")))
 		snprintf(path, sizeof (path), "%s", value);
 
 	while ((ch = getopt(argc, argv, "d:")) != -1) {

@@ -1,5 +1,5 @@
 #
-# imgpaster -- convenient front-end to a imgpasterd instance
+# imgup -- convenient front-end to a imgupd instance
 #
 # Copyright (c) 2020 David Demelier <markand@malikania.fr>
 #
@@ -40,7 +40,7 @@ durations()
 usage()
 {
 	cat 1>&2 <<-EOF
-	usage: paster [-Dpv] [-a author] [-d duration] [-t title] filename host
+	usage: imgup [-Dpv] [-a author] [-d duration] [-t title] filename host
 	EOF
 	exit 1
 }

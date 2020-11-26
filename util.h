@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_UTIL_H
-#define IMGPASTER_UTIL_H
+#ifndef IMGUP_UTIL_H
+#define IMGUP_UTIL_H
 
 #include <stddef.h>
 #include <stdnoreturn.h>
@@ -51,4 +51,4 @@ replace(char **, const char *);
 const char *
 ttl(time_t, long long int);
 
-#endif /* !IMGPASTER_UTIL_H */
+#endif /* !IMGUP_UTIL_H */

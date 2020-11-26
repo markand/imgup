@@ -16,8 +16,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_LOG_H
-#define IMGPASTER_LOG_H
+#ifndef IMGUP_LOG_H
+#define IMGUP_LOG_H
 
 #include <stdarg.h>
 
@@ -43,4 +43,4 @@ log_vwrite(enum log_level, const char *, va_list);
 void
 log_finish(void);
 
-#endif /* !IMGPASTER_LOG_H */
+#endif /* !IMGUP_LOG_H */

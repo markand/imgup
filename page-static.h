@@ -16,12 +16,12 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef IMGPASTER_PAGE_STATIC_H
-#define IMGPASTER_PAGE_STATIC_H
+#ifndef IMGUP_PAGE_STATIC_H
+#define IMGUP_PAGE_STATIC_H
 
 struct kreq;
 
 void
 page_static(struct kreq *);
 
-#endif /* !IMGPASTER_PAGE_STATIC_H */
+#endif /* !IMGUP_PAGE_STATIC_H */

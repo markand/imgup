@@ -1,7 +1,7 @@
-imgpaster CONTRIBUTING GUIDE
-============================
+imgup CONTRIBUTING GUIDE
+========================
 
-Read this guide if you want to contribute to imgpaster. The purpose of this
+Read this guide if you want to contribute to imgup. The purpose of this
 document is to describe the steps to submit a patch.
 
 You may submit a patch when:
@@ -17,9 +17,9 @@ the rules.
 Subscribe to the mailing list
 -----------------------------
 
-Discussion and patches are sent to the *imgpaster@malikania.fr* mailing list.
+Discussion and patches are sent to the *imgup@malikania.fr* mailing list.
 You need to subscribe by dropping a mail to
-*imgpaster+subscribe@malikania.fr* first.
+*imgup+subscribe@malikania.fr* first.
 
 Enable patchbomb extension
 --------------------------
@@ -38,7 +38,7 @@ something like this:
 
     [email]
     from = Your Name <youraddress@yourdomain.tld>
-    to = imgpaster@malikania.fr
+    to = imgup@malikania.fr
 
     [smtp]
     host = yourdomain.tld
@@ -79,10 +79,10 @@ Use the following settings:
 Create your patch
 -----------------
 
-Usually, when you create a patch, you should have your own copy of imgpaster
+Usually, when you create a patch, you should have your own copy of imgup
 in your directory.
 
-The following steps assumes that you have already cloned the imgpaster
+The following steps assumes that you have already cloned the imgup
 repository somewhere.
 
 Note: the recommended way is to create one unique revision.

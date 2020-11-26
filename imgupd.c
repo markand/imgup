@@ -1,5 +1,5 @@
 /*
- * imgpasterd.c -- main imgpasterd(8) file
+ * imgupd.c -- main imgupd(8) file
  *
  * Copyright (c) 2020 David Demelier <markand@malikania.fr>
  * 
@@ -32,7 +32,7 @@ static void
 defaults(void)
 {
 	snprintf(config.databasepath, sizeof (config.databasepath),
-	    "%s", VARDIR "/imgpaster/imgpaster.db");
+	    "%s", VARDIR "/imgup/imgup.db");
 }
 
 static void
@@ -57,7 +57,7 @@ quit(void)
 static noreturn void
 usage(void)
 {
-	fprintf(stderr, "usage: paster [-fqv] [-d database-path] [-t theme-directory]\n");
+	fprintf(stderr, "usage: imgupd [-fqv] [-d database-path] [-t theme-directory]\n");
 	exit(1);
 }
  
@@ -71,11 +71,11 @@ main(int argc, char **argv)
 	defaults();
 
 	/* Seek environment variables before options. */
-	if ((value = getenv("IMGPASTERD_DATABASE_PATH")))
+	if ((value = getenv("IMGUPD_DATABASE_PATH")))
 		snprintf(config.databasepath, sizeof (config.databasepath), "%s", value);
-	if ((value = getenv("IMGPASTERD_THEME_DIR")))
+	if ((value = getenv("IMGUPD_THEME_DIR")))
 		snprintf(config.themedir, sizeof (config.themedir), "%s", value);
-	if ((value = getenv("IMGPASTERD_VERBOSITY")))
+	if ((value = getenv("IMGUPD_VERBOSITY")))
 		config.verbosity = atoi(value);
 
 	while ((opt = getopt(argc, argv, "d:ft:qv")) != -1) {
