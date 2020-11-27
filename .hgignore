@@ -9,7 +9,7 @@
 \.DS_Store$
 
 # Temporary files.
-^libimgpaster\.a$
+^libimgup\.a$
 ^libsqlite3\.a$
 \.o$
 \.d$

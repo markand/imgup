@@ -4,7 +4,8 @@ imgup CHANGES
 imgup current
 ----------------------
 
-- Rename the project from imgpaster to imgup.
+- Rename the project from imgpaster to imgup,
+- Import a new theme based on mini.css.
 
 imgup 0.1.0 2020-11-26
 ----------------------
