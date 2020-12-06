@@ -9,10 +9,9 @@
 \.DS_Store$
 
 # Temporary files.
-^libimgup\.a$
-^libsqlite3\.a$
-\.o$
+\.a$
 \.d$
+\.o$
 
 # Executables.
 ^imgupd(\.8)?$
