@@ -67,7 +67,7 @@ Sets a title to the paste, defaults to
 .Sh EXAMPLES
 .Ss Upload the image background.png with a title and an author.
 .Bd -literal -offset
-imgup -t "Nice background" -a Francis background.sh http://example.org
+imgup -t "Nice background" -a Francis background.png http://example.org
 .Ed
 .Ss Paste a short duration image.
 .Bd -literal -offset
