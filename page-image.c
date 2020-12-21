@@ -23,6 +23,7 @@
 #include <stdint.h>
 
 #include <kcgi.h>
+#include <kcgihtml.h>
 
 #include "database.h"
 #include "image.h"
@@ -49,32 +50,37 @@ static int
 template(size_t keyword, void *arg)
 {
 	const struct template *tp = arg;
+	struct khtmlreq html;
+
+	khtml_open(&html, tp->req, KHTML_PRETTY);
 
 	switch (keyword) {
 	case 0:
-		khttp_puts(tp->req, tp->image->id);
+		khtml_puts(&html, tp->image->id);
 		break;
 	case 1:
-		khttp_puts(tp->req, tp->image->title);
+		khtml_puts(&html, tp->image->title);
 		break;
 	case 2:
-		khttp_puts(tp->req, tp->image->author);
+		khtml_puts(&html, tp->image->author);
 		break;
 	case 3:
-		khttp_puts(tp->req, tp->image->filename);
+		khtml_puts(&html, tp->image->filename);
 		break;
 	case 4:
-		khttp_puts(tp->req, bstrftime("%c", localtime(&tp->image->timestamp)));
+		khtml_puts(&html, bstrftime("%c", localtime(&tp->image->timestamp)));
 		break;
 	case 5:
-		khttp_puts(tp->req, bprintf(tp->image->visible ? "Yes" : "No"));
+		khtml_puts(&html, bprintf(tp->image->visible ? "Yes" : "No"));
 		break;
 	case 6:
-		khttp_puts(tp->req, ttl(tp->image->timestamp, tp->image->duration));
+		khtml_puts(&html, ttl(tp->image->timestamp, tp->image->duration));
 		break;
 	default:
 		break;
 	}
+
+	khtml_close(&html);
 
 	return 1;
 }
