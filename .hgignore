@@ -14,6 +14,7 @@
 \.o$
 
 # Executables.
+^imgupd-themes\.5$
 ^imgupd(\.8)?$
 ^imgupd-clean(\.8)?$
 ^imgup(\.1)?$

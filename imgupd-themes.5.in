@@ -1,0 +1,214 @@
+.\"
+.\" Copyright (c) 2020 David Demelier <markand@malikania.fr>
+.\"
+.\" Permission to use, copy, modify, and/or distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.Dd 25 November, 2020
+.Dt IMGUPD-THEMES 5
+.Os
+.\" NAME
+.Sh NAME
+.Nm imgupd-themes
+.Nd themes for imgupd
+.\" DESCRIPTION
+.Sh DESCRIPTION
+This manual page describe the file hierarchy and syntax required to create a new
+theme for
+.Nm imgupd .
+.Pp
+A theme consists of fragments and pages. A fragment is a piece of HTML code that
+may be repeated while a page is usually the HTML code that is inside the
+.Dq <body></body>
+HTML tag.
+.\" THEME STRUCTURE
+.Sh THEME STRUCTURE
+The easiest way to create a new theme is to copy the predefined
+.Pa minimal
+and adapt the files to the desired style. See it in
+@SHAREDIR@/imgup/themes/minimal.
+.Pp
+The following files must be provided into a directory:
+.Bd -literal -offset indent
+theme/fragments/duration.html
+theme/fragments/footer.html
+theme/fragments/header.html
+theme/fragments/image.html
+theme/pages/400.html
+theme/pages/404.html
+theme/pages/500.html
+theme/pages/image.html
+theme/pages/index.html
+theme/pages/new.html
+theme/pages/search.html
+.Ed
+.Pp
+See below for a description per file.
+.\" KEYWORDS
+.Sh KEYWORDS
+Templates files may contain keywords that are replaced during processing using
+the syntax
+.Dq @@variable@@ .
+.Pp
+The following keywords are supported:
+.Bl -tag -width 10n
+.It Va author
+The image author.
+.It Va date
+Date as a string.
+.It Va duration
+Duration expressed as a string. May be
+.Dq hour ,
+.Dq day ,
+.Dq week ,
+.Dq month .
+.It Va durations
+Fragment repeated for every duration supported using
+.Pa fragments/duration.html
+template.
+.It Va expiration
+The time left for the image expressed as minutes, hours or days depending on the
+time left.
+.It Va filename
+Original filename including its extension.
+.It Va id
+Unique image indentifier.
+.It Va images
+Fragment repeated for every image using
+.Pa fragments/image.html
+template.
+.It Va pastes
+Fragment repeated for every paste using
+.Pa fragments/paste.html
+template.
+.It Va public
+String set to
+.Dq Yes
+if public or
+.Dq "No"
+otherwise.
+.It Va title
+Image title.
+.El
+.\" PAGES AND FRAGMENTS
+.Sh PAGES AND FRAGMENTS
+.\" fragments/duration.html
+.Ss fragments/duration.html
+A fragment that should generate a
+.Dq <select>
+option for the given duration.
+.Pp
+Supported keywords:
+.Bl -bullet -compact
+.It
+.Va duration
+.El
+.\" fragments/footer.html
+.Ss fragments/footer.html
+Fragment applied at the end of a page.
+.\" fragments/header.html
+.Ss fragments/header.html
+Fragment applied at the beginning of a page.
+.\" fragments/image.html
+.Ss fragments/image.html
+Repeated fragment in the
+.Pa pages/index.html
+page.
+.Pp
+Supported keywords:
+.Bl -bullet -compact
+.It
+.Va id
+.It
+.Va title
+.It
+.Va author
+.It
+.Va date
+.It
+.Va expiration
+.El
+.Ss pages/400.html
+.Ss pages/404.html
+.Ss pages/500.html
+Those pages are used to indicate an error that are generated from
+.Nm imgupd .
+.Pp
+There are no keywords.
+.\" pages/index.html
+.Ss pages/index.html
+This page is the landing of the
+.Nm imgupd
+program. It should provide a list of last recents pastes.
+.Pp
+Supported keywords:
+.Bl -bullet -compact
+.It
+.Va pastes
+.El
+.\" pages/image.html
+.Ss pages/image.html
+Details of a image.
+.Pp
+Supported keywords:
+.Bl -bullet -compact
+.It
+.Va id
+.It
+.Va title
+.It
+.Va author
+.It
+.Va filename
+.It
+.Va date
+.It
+.Va visible
+.It
+.Va expiration
+.El
+.\" pages/new.html
+.Ss pages/new.html
+Create a form for uploading a new image. The form should submit a POST request
+to the same page with the following field data:
+.Pp
+.Bl -tag -width 10n
+.It Va title
+Image title.
+.It Va author
+Image author.
+.It Va duration
+Image duration (should use
+.Dq durations
+keyword).
+.It Va filename
+Path to the file to upload.
+.El
+.Pp
+Supported keywords:
+.Bl -bullet -compact
+.It
+.Va durations
+.El
+.\" pages/search.html
+.Ss pages/search.html
+Create a form for searching images. The form should submit a POST request to the
+same page with the following field data:
+.Bl -tag
+.It Va title
+Title to search
+.It Va author
+Author of image.
+.El
+.\" SEE ALSO
+.Sh SEE ALSO
+.Xr imgupd 8

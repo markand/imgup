@@ -35,7 +35,7 @@ interface. It will show most recent uploaded images and let users to create new
 one from a web form.
 .Pp
 It supports:
-.Bl -bullet -compat
+.Bl -bullet -compact
 .It
 Listing of recent images,
 .It
@@ -204,4 +204,5 @@ was written by David Demelier <markand@malikania.fr>
 .\" SEE ALSO
 .Sh SEE ALSO
 .Xr imgup 1 ,
+.Xr imgupd-themes 5 ,
 .Xr kfcgi 8

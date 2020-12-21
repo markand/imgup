@@ -112,7 +112,7 @@ ${CORE_LIB}: ${CORE_OBJS}
 
 imgupd-clean.o: imgupd-clean.8 ${CORE_LIB} ${SQLITE_LIB}
 
-imgupd.o: imgupd.8 ${CORE_LIB} ${SQLITE_LIB}
+imgupd.o: imgupd-themes.5 imgupd.8 ${CORE_LIB} ${SQLITE_LIB}
 
 imgup: imgup.sh imgup.1
 	cp imgup.sh imgup
@@ -121,7 +121,7 @@ imgup: imgup.sh imgup.1
 clean:
 	rm -f ${SQLITE_LIB} extern/sqlite3.o
 	rm -f ${CORE_LIB} ${CORE_OBJS} ${CORE_DEPS}
-	rm -f imgupd imgupd.d imgupd.o imgupd.8
+	rm -f imgupd imgupd.d imgupd.o imgupd-themes.5 imgupd.8
 	rm -f imgupd-clean imgupd-clean.d imgupd-clean.o imgupd-clean.8
 	rm -f imgup imgup.1
 	rm -f test.db ${TESTS_OBJS}
@@ -134,17 +134,19 @@ install-imgup:
 
 install-imgupd:
 	mkdir -p ${DESTDIR}${BINDIR}
+	mkdir -p ${DESTDIR}${MANDIR}/man5
 	mkdir -p ${DESTDIR}${MANDIR}/man8
 	cp imgupd ${DESTDIR}${BINDIR}
 	cp imgupd-clean ${DESTDIR}${BINDIR}
 	mkdir -p ${DESTDIR}${SHAREDIR}/imgup
 	cp -R themes ${DESTDIR}${SHAREDIR}/imgup
+	cp imgupd-themes.5 ${DESTDIR}${MANDIR}/man5
 	cp imgupd.8 ${DESTDIR}${MANDIR}/man8
 	cp imgupd-clean.8 ${DESTDIR}${MANDIR}/man8
 
 install: install-imgupd install-imgup
 
-dist: clean
+dist:
 	mkdir -p imgup-${VERSION}
 	cp -R extern imgup-${VERSION}
 	cp -R themes imgup-${VERSION}
