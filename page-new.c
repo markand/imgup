@@ -92,7 +92,8 @@ post(struct kreq *r)
 	struct image image = {
 		.author         = estrdup("Anonymous"),
 		.title          = estrdup("Untitled"),
-		.visible        = true
+		.visible        = true,
+		.duration       = IMAGE_DURATION_DAY
 	};
 
 	for (size_t i = 0; i < r->fieldsz; ++i) {
