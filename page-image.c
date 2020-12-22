@@ -37,13 +37,13 @@ struct template {
 };
 
 static const char *keywords[] = {
-	"id",
-	"title",
 	"author",
-	"filename",
 	"date",
-	"visible",
-	"expiration"
+	"expiration",
+	"filename",
+	"id",
+	"public",
+	"title"
 };
 
 static int
@@ -56,25 +56,25 @@ template(size_t keyword, void *arg)
 
 	switch (keyword) {
 	case 0:
-		khtml_puts(&html, tp->image->id);
+		khtml_puts(&html, tp->image->author);
 		break;
 	case 1:
-		khtml_puts(&html, tp->image->title);
+		khtml_puts(&html, bstrftime("%c", localtime(&tp->image->timestamp)));
 		break;
 	case 2:
-		khtml_puts(&html, tp->image->author);
+		khtml_puts(&html, ttl(tp->image->timestamp, tp->image->duration));
 		break;
 	case 3:
 		khtml_puts(&html, tp->image->filename);
 		break;
 	case 4:
-		khtml_puts(&html, bstrftime("%c", localtime(&tp->image->timestamp)));
+		khtml_puts(&html, tp->image->id);
 		break;
 	case 5:
 		khtml_puts(&html, bprintf(tp->image->visible ? "Yes" : "No"));
 		break;
 	case 6:
-		khtml_puts(&html, ttl(tp->image->timestamp, tp->image->duration));
+		khtml_puts(&html, tp->image->title);
 		break;
 	default:
 		break;
