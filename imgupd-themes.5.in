@@ -22,8 +22,8 @@
 .Nd themes for imgupd
 .\" DESCRIPTION
 .Sh DESCRIPTION
-This manual page describe the file hierarchy and syntax required to create a new
-theme for
+This manual pages describe the file hierarchy and syntax required to create a
+new theme for
 .Nm imgupd .
 .Pp
 A theme consists of fragments and pages. A fragment is a piece of HTML code that
@@ -51,6 +51,11 @@ theme/pages/index.html
 theme/pages/new.html
 theme/pages/search.html
 .Ed
+.Pp
+A special
+.Pa static
+directory into the theme can be used to provide non templates data such as
+images, Javascript and CSS files. They are not processed and provided as-is.
 .Pp
 See below for a description per file.
 .\" KEYWORDS
@@ -86,15 +91,11 @@ Unique image indentifier.
 Fragment repeated for every image using
 .Pa fragments/image.html
 template.
-.It Va pastes
-Fragment repeated for every paste using
-.Pa fragments/paste.html
-template.
 .It Va public
 String set to
 .Dq Yes
 if public or
-.Dq "No"
+.Dq \&No
 otherwise.
 .It Va title
 Image title.
@@ -142,18 +143,16 @@ Supported keywords:
 .Ss pages/500.html
 Those pages are used to indicate an error that are generated from
 .Nm imgupd .
-.Pp
-There are no keywords.
 .\" pages/index.html
 .Ss pages/index.html
 This page is the landing of the
 .Nm imgupd
-program. It should provide a list of last recents pastes.
+program. It should provide a list of last recents images.
 .Pp
 Supported keywords:
 .Bl -bullet -compact
 .It
-.Va pastes
+.Va images
 .El
 .\" pages/image.html
 .Ss pages/image.html
