@@ -31,37 +31,37 @@ VARDIR=         ${PREFIX}/var
 
 VERSION=        0.2.0
 
-CORE_SRCS=      config.c                \
-                database.c              \
-                fragment-duration.c     \
-                fragment-image.c        \
-                fragment.c              \
-                http.c                  \
-                image.c                 \
-                log.c                   \
-                page-download.c         \
-                page-image.c            \
-                page-index.c            \
-                page-new.c              \
-                page-search.c           \
-                page-static.c           \
-                page.c                  \
+CORE_SRCS=      config.c                        \
+                database.c                      \
+                fragment-duration.c             \
+                fragment-image.c                \
+                fragment.c                      \
+                http.c                          \
+                image.c                         \
+                log.c                           \
+                page-download.c                 \
+                page-image.c                    \
+                page-index.c                    \
+                page-new.c                      \
+                page-search.c                   \
+                page-static.c                   \
+                page.c                          \
                 util.c
-CORE_HDRS=      config.h                \
-                database.h              \
-                fragment-duration.h     \
-                fragment-image.h        \
-                fragment.h              \
-                http.h                  \
-                image.h                 \
-                log.h                   \
-                page-download.h         \
-                page-image.h            \
-                page-index.h            \
-                page-new.h              \
-                page-search.h           \
-                page-static.h           \
-                page.h                  \
+CORE_HDRS=      config.h                        \
+                database.h                      \
+                fragment-duration.h             \
+                fragment-image.h                \
+                fragment.h                      \
+                http.h                          \
+                image.h                         \
+                log.h                           \
+                page-download.h                 \
+                page-image.h                    \
+                page-index.h                    \
+                page-new.h                      \
+                page-search.h                   \
+                page-static.h                   \
+                page.h                          \
                 util.h
 CORE_OBJS=      ${CORE_SRCS:.c=.o}
 CORE_DEPS=      ${CORE_SRCS:.c=.d}
@@ -70,17 +70,22 @@ CORE_LIB=       libimgup.a
 TESTS_SRCS=     tests/test-database.c
 TESTS_OBJS=     ${TESTS_SRCS:.c=}
 
-SQLITE_FLAGS=   -DSQLITE_THREADSAFE=0 \
-                -DSQLITE_OMIT_LOAD_EXTENSION \
-                -DSQLITE_OMIT_DEPRECATED \
+SQLITE_FLAGS=   -DSQLITE_THREADSAFE=0           \
+                -DSQLITE_OMIT_LOAD_EXTENSION    \
+                -DSQLITE_OMIT_DEPRECATED        \
                 -DSQLITE_DEFAULT_FOREIGN_KEYS=1
 SQLITE_LIB=     libsqlite3.a
 
-MY_CFLAGS=      -std=c11 -MMD -I. -Iextern \
-                -D_XOPEN_SOURCE=700 \
-                -DSHAREDIR=\"${SHAREDIR}\" \
-                -DVARDIR=\"${VARDIR}\"
-MY_LDFLAGS=     -lmagic -lkcgi -lkcgihtml -lz
+MY_CFLAGS=      -std=c11                        \
+                -MMD                            \
+                -I .                            \
+                -I extern                       \
+                -D_XOPEN_SOURCE=700             \
+                -DSHAREDIR=\"${SHAREDIR}\"      \
+                -DVARDIR=\"${VARDIR}\"          \
+                `pkg-config --cflags libmagic kcgi-html`
+
+MY_LDFLAGS=     `pkg-config --libs libmagic kcgi-html`
 
 .SUFFIXES:
 .SUFFIXES: .o .c .in
