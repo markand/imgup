@@ -186,6 +186,26 @@ server {
 	}
 }
 .Ed
+.\" Server: lighttpd
+.Ss Server: lighttpd
+This configuration uses FastCGI module rather than plain CGI.
+.Bd -literal
+# Add mod_fastcgi to this parameter.
+server.modules = (
+	"mod_fastcgi"
+)
+
+$HTTP["host"] == "mypaste" {
+	fastcgi.server = (
+		"/" => ((
+			"socket" => "/var/www/run/httpd.sock",
+			"check-local" => "disable",
+			"docroot" => "/",
+			"fix-root-scriptname" => "enable"
+		))
+	)
+}
+.Ed
 .\" ENVIRONMENT
 .Sh ENVIRONMENT
 The following environment variables are detected:
