@@ -1,0 +1,54 @@
+	<h1 class="title">Upload image</h1>
+
+	<form action="/new" method="post" enctype="multipart/form-data">
+		<div class="field">
+			<label class="label">Title</label>
+			<div class="control">
+				<input name="title" class="input" type="text" placeholder="Untitled">
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Author</label>
+			<div class="control">
+				<input name="author" class="input" type="text" placeholder="Anonymous">
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Author</label>
+			<div class="control">
+				<div class="select">
+					<select name="duration">
+						@@durations@@
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label">Visibility</label>
+			<label class="checkbox">
+			<input name="private" type="checkbox" checked>
+				Private
+			</label>
+		</div>
+
+		<div class="field">
+			<label class="label">Image file</label>
+			<div class="file">
+				<label class="file-label">
+					<input name="filename" class="file-input" type="file">
+					<span class="file-cta">
+						<span class="file-label">Choose an image</span>
+					</span>
+				</label>
+			</div>
+		</div>
+
+		<div class="field">
+			<p class="control">
+				<button class="button is-success">Upload</button>
+			</p>
+		</div>
+	</form>

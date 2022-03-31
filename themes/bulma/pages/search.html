@@ -1,0 +1,25 @@
+	<h1 class="title">Search images</h1>
+
+	<form action="/search" method="post">
+		<div class="field">
+			<label class="label">Title</label>
+			<div class="control">
+				<input name="title"class="input" type="text" placeholder="Image title">
+			</div>
+			<p class="help">Empty value matches all titles</p>
+		</div>
+
+		<div class="field">
+			<label class="label">Author</label>
+			<div class="control">
+				<input name="author"class="input" type="text" placeholder="Image author">
+			</div>
+			<p class="help">Empty value matches all authors</p>
+		</div>
+
+		<div class="field">
+			<p class="control">
+				<button class="button is-success">Search</button>
+			</p>
+		</div>
+	</form>
