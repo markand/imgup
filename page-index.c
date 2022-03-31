@@ -64,7 +64,7 @@ get(struct kreq *r)
 	size_t imagesz = NELEM(images);
 
 	if (!database_recents(images, &imagesz))
-		page(r, NULL, KHTTP_500, "pages/500.html");
+		page(r, NULL, KHTTP_500, "pages/500.html", "500");
 	else
 		page_index_render(r, images, imagesz);
 
@@ -88,7 +88,7 @@ page_index_render(struct kreq *r, const struct image *images, size_t imagesz)
 		.cb = template
 	};
 
-	page(r, &kt, KHTTP_200, "pages/index.html");
+	page(r, &kt, KHTTP_200, "pages/index.html", "Recent images");
 }
 
 void
@@ -101,7 +101,7 @@ page_index(struct kreq *r)
 		get(r);
 		break;
 	default:
-		page(r, NULL, KHTTP_400, "pages/400.html");
+		page(r, NULL, KHTTP_400, "pages/400.html", "400");
 		break;
 	}
 }

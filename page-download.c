@@ -33,7 +33,7 @@ get(struct kreq *r)
 	struct image image = {0};
 
 	if (!database_get(&image, r->path))
-		page(r, NULL, KHTTP_404, "pages/404.html");
+		page(r, NULL, KHTTP_404, "pages/404.html", "404");
 	else {
 		khttp_head(r, kresps[KRESP_CONTENT_TYPE], "%s", kmimetypes[KMIME_APP_OCTET_STREAM]);
 		khttp_head(r, kresps[KRESP_CONTENT_LENGTH], "%llu", (unsigned long long)image.datasz);
@@ -57,7 +57,7 @@ page_download(struct kreq *r)
 		get(r);
 		break;
 	default:
-		page(r, NULL, KHTTP_400, "pages/400.html");
+		page(r, NULL, KHTTP_400, "pages/400.html", "400");
 		break;
 	}
 }

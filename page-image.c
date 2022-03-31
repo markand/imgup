@@ -93,18 +93,17 @@ get(struct kreq *r)
 		.req = r,
 		.image = &image
 	};
+	struct ktemplate kt = {
+		.key = keywords,
+		.keysz = NELEM(keywords),
+		.cb = template,
+		.arg = &data
+	};
 
 	if (!database_get(&image, r->path))
-		page(r, NULL, KHTTP_404, "pages/404.html");
+		page(r, NULL, KHTTP_404, "pages/404.html", "404");
 	else {
-		const struct ktemplate kt = {
-			.key = keywords,
-			.keysz = NELEM(keywords),
-			.cb = template,
-			.arg = &data
-		};
-
-		page(r, &kt, KHTTP_200, "pages/image.html");
+		page(r, &kt, KHTTP_200, "pages/image.html", image.title);
 		image_finish(&image);
 	}
 }
@@ -119,7 +118,7 @@ page_image(struct kreq *r)
 		get(r);
 		break;
 	default:
-		page(r, NULL, KHTTP_400, "pages/400.html");
+		page(r, NULL, KHTTP_400, "pages/400.html", "400");
 		break;
 	}
 }

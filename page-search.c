@@ -35,7 +35,7 @@
 static void
 get(struct kreq *r)
 {
-	page(r, NULL, KHTTP_200, "pages/search.html");
+	page(r, NULL, KHTTP_200, "pages/search.html", "Search");
 }
 
 static void
@@ -63,7 +63,7 @@ post(struct kreq *r)
 		author = NULL;
 
 	if (!database_search(images, &imagesz, title, author))
-		page(r, NULL, KHTTP_500, "pages/500.html");
+		page(r, NULL, KHTTP_500, "pages/500.html", "500");
 	else
 		page_index_render(r, images, imagesz);
 
@@ -84,7 +84,7 @@ page_search(struct kreq *r)
 		post(r);
 		break;
 	default:
-		page(r, NULL, KHTTP_400, "pages/400.html");
+		page(r, NULL, KHTTP_400, "pages/400.html", "400");
 		break;
 	}
 }

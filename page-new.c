@@ -83,7 +83,7 @@ get(struct kreq *r)
 		.arg = r
 	};
 
-	page(r, &kt, KHTTP_200, "pages/new.html");
+	page(r, &kt, KHTTP_200, "pages/new.html", "Upload image");
 }
 
 static void
@@ -118,9 +118,9 @@ post(struct kreq *r)
 
 	/* TODO: image_isvalid should check for all stuff. */
 	if (!image.data || !image_isvalid(image.data, image.datasz))
-		page(r, NULL, KHTTP_400, "pages/400.html");
+		page(r, NULL, KHTTP_400, "pages/400.html", "400");
 	else if (!database_insert(&image))
-		page(r, NULL, KHTTP_500, "pages/500.html");
+		page(r, NULL, KHTTP_500, "pages/500.html", "500");
 	else {
 		/* Redirect to image details. */
 		khttp_head(r, kresps[KRESP_STATUS], "%s", khttps[KHTTP_302]);
