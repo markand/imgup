@@ -171,7 +171,7 @@ Supported keywords:
 .It
 .Va date
 .It
-.Va visible
+.Va public
 .It
 .Va expiration
 .El
