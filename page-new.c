@@ -95,6 +95,7 @@ post(struct kreq *r)
 		.visible        = true,
 		.duration       = IMAGE_DURATION_DAY
 	};
+	int raw = 0;
 
 	for (size_t i = 0; i < r->fieldsz; ++i) {
 		const char *key = r->fields[i].key;
@@ -114,6 +115,8 @@ post(struct kreq *r)
 			image.datasz = r->fields[i].valsz;
 		} else if (strcmp(key, "private") == 0)
 			image.visible = strcmp(val, "on") != 0;
+		else if (strcmp(key, "raw") == 0)
+			raw = strcmp(val, "on") == 0;
 	}
 
 	/* TODO: image_isvalid should check for all stuff. */
@@ -122,11 +125,21 @@ post(struct kreq *r)
 	else if (!database_insert(&image))
 		page(r, NULL, KHTTP_500, "pages/500.html", "500");
 	else {
-		/* Redirect to image details. */
-		khttp_head(r, kresps[KRESP_STATUS], "%s", khttps[KHTTP_302]);
-		khttp_head(r, kresps[KRESP_LOCATION], "/image/%s", image.id);
-		khttp_body(r);
-		khttp_free(r);
+		if (raw) {
+			/* For CLI users (e.g. imgup) just print the location. */
+			khttp_head(r, kresps[KRESP_STATUS], "%s", khttps[KHTTP_201]);
+			khttp_body(r);
+			khttp_printf(r, "%s://%s/image/%s\n",
+			    r->scheme == KSCHEME_HTTP ? "http" : "https",
+			    r->host, image.id);
+			khttp_free(r);
+		} else {
+			/* Otherwise, redirect to image details. */
+			khttp_head(r, kresps[KRESP_STATUS], "%s", khttps[KHTTP_302]);
+			khttp_head(r, kresps[KRESP_LOCATION], "/image/%s", image.id);
+			khttp_body(r);
+			khttp_free(r);
+		}
 	}
 
 	image_finish(&image);

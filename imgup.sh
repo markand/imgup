@@ -55,13 +55,16 @@ send()
 
 	if [ $verbose -eq 0 ]; then
 		with_verbose="-s"
+	else
+		with_verbose="-i"
 	fi
 
-	curl -i \
+	curl -L -X POST \
 		-F author="$author" \
 		-F duration="$duration" \
 		-F title="$title" \
 		-F filename=@"$1" \
+		-F raw="on" \
 		$with_private \
 		$with_verbose \
 		"$2"/new
@@ -103,15 +106,4 @@ if [ "$#" -ne 2 ]; then
 	usage
 fi
 
-# If verbose, dump all headers.
-if [ $verbose -eq 1 ]; then
-	send "$1" "$2"
-else
-	url=$(send "$1" "$2" | grep -E "^Location: " | awk '{ print $2 }')
-
-	if [ -z "$url" ]; then
-		die "abort: error occured, retry with -v"
-	fi
-
-	printf "%s%s\n" "$2" "$url"
-fi
+send "$1" "$2"
