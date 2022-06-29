@@ -20,14 +20,13 @@
 #define IMGUP_UTIL_H
 
 #include <stddef.h>
-#include <stdnoreturn.h>
 #include <time.h>
 
 #define NELEM(x) (sizeof (x) / sizeof (x)[0])
 
 struct tm;
 
-noreturn void
+void
 die(const char *, ...);
 
 char *

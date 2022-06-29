@@ -23,7 +23,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdnoreturn.h>
 #include <string.h>
 #include <time.h>
 
@@ -31,7 +30,7 @@
 #include "config.h"
 #include "util.h"
 
-noreturn void
+void
 die(const char *fmt, ...)
 {
 	assert(fmt);
