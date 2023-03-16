@@ -39,7 +39,7 @@ get(struct kreq *r)
 		khttp_head(r, kresps[KRESP_CONTENT_LENGTH], "%llu", (unsigned long long)image.datasz);
 		khttp_head(r, kresps[KRESP_CONNECTION], "keep-alive");
 		khttp_head(r, kresps[KRESP_CONTENT_DISPOSITION],
-		    "attachment; filename=\"%s\"", image.filename);
+		    "attachment; filename=\"%s\"", image.id);
 		khttp_body(r);
 		khttp_write(r, image.data, image.datasz);
 		khttp_free(r);
